@@ -1,3 +1,7 @@
+# Agradecimentos
+
+Primeiramente Gostaríamos de expressar nossa sincera gratidão aos talentosos desenvolvedores do GBDK para Game Boy. Seu trabalho árduo e dedicação possibilitaram a criação de jogos incríveis e inspiraram uma comunidade apaixonada de desenvolvedores. Obrigado por sua contribuição para a magia dos videogames retro e modernos!
+
 # Engine para Game Boy
 
 Esta é uma engine pronta em C para criar jogos simples para o console Game Boy. A engine fornece funcionalidades básicas para desenvolver jogos, e toda a implementação do jogo deve ser feita no arquivo `game.c`.
@@ -7,7 +11,6 @@ Esta é uma engine pronta em C para criar jogos simples para o console Game Boy.
 Antes de usar esta engine, certifique-se de ter o seguinte software instalado em sua máquina:
 
 - [GBDK](https://gbdk.dev/) - O Game Boy Development Kit (GBDK) é um conjunto de ferramentas para desenvolvimento de jogos para Game Boy.
-- [DevkitPro](https://devkitpro.org/) - O DevkitPro é uma coleção de ferramentas de desenvolvimento de software para consoles portáteis, incluindo o Game Boy.
 
 Além disso, você precisará de um editor de código para desenvolver em C. Este projeto foi desenvolvido usando o Visual Studio Code, mas você pode usar qualquer editor de sua preferência.
 
