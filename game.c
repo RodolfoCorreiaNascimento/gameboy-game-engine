@@ -24,11 +24,10 @@ void StartGame()
 void SetupSprites()
 {
     LoadSprites(0, 1, 0, 0, TileLabel);
-    //set_sprite_data(0,1,TileLabel);
 }
 
 void UpdateGame()
 {
     ObjectMovement(&player);
-    ObjectScreenCollision(&player);
+    ObjectScreenCollision(&player, 160, 144, 8, 16);
 }

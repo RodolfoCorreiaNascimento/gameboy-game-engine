@@ -11,6 +11,7 @@ Definições das funções relacionadas à engine.
 #define ENGINE_H
 
 #include "my_types.h"
+#include "object.h"
 
 // Protótipos das funções relacionadas à engine
 void InitializeEngine();
@@ -30,5 +31,11 @@ void UpdateEngine();
 //void StopMusic();
 
 void LoadSprites(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data);
+
+void CreateObject(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y);
+
+void ObjectMovement(struct Object *obj);
+
+void ObjectScreenCollision(struct Object *obj, u8 _screenwidth, u8 _screenheight, u8 _tileWidth, u8 _tileDimension);
 
 #endif

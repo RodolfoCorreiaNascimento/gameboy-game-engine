@@ -10,7 +10,6 @@ Este arquivo contém as definições do jogo, incluindo a inicialização, carre
 #ifndef GAME_H
 #define GAME_H
 
-#include "gameobject.h"
 #include "object.h"
 #include "apple.h"
 #include <gb/gb.h>
