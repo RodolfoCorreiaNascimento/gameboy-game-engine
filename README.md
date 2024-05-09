@@ -41,4 +41,4 @@ Caso tenha interesse em contribuir entre em contato conosco.
 Este projeto é licenciado sob a [MIT License](LICENSE).
 
 ## Roadmap
-1 - Iniciando um branch gameobject_engine que será usado para estruturar o game object dentro da engine para seu ultilizada dentro do game.c
+7 - Iniciando um branch setcameraposition_engine que será usado para estruturar o controle da camera dentro da engine para seu ultilizada dentro do game.c
