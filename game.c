@@ -28,6 +28,6 @@ void SetupSprites()
 
 void UpdateGame()
 {
-    ObjectMovement(&player);
+    ObjectMovement(&player, 1, 1);
     ObjectScreenCollision(&player, 160, 144, 8, 16);
 }

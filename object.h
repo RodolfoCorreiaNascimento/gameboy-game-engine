@@ -12,6 +12,10 @@ Definição da estrutura de dados para objetos no jogo.
 
 #include "my_types.h"
 
+/*!
+ * \brief Essa estrutura representa um objeto,
+ *          que possui coordenadas x e y, velocidade. i.e: struct Object player;
+ */
 struct Object
 {
     u8 x, y, vel_x, vel_y;

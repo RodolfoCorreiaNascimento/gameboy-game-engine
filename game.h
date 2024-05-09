@@ -17,12 +17,21 @@ Este arquivo contém as definições do jogo, incluindo a inicialização, carre
 // ------------- GAME INIT ------------------- //
 
 // Initializes the game
+/*!
+ * \brief Essa implementação inicia a o jogo do game boy.
+ */
 void StartGame();
 
 // Load the sprites
+/*!
+ * \brief Essa implementação carrega os tiles e backgrounds da game.
+ */
 void SetupSprites();
 
 // Main game loop
+/*!
+ * \brief Essa implementação atualiza o jogo.
+ */
 void UpdateGame();
 
 #endif

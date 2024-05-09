@@ -15,6 +15,9 @@ Definições das funções relacionadas à engine.
 // Definições globais da engine, se necessário
 
 // ------------------------- INITIALIZE ENGINE ------------------------------ //
+/*!
+ * \brief Essa implementação inicia a Engine do game boy,
+ */
 void InitializeEngine() 
 {
     // Inicializa a engine do jogo
@@ -25,18 +28,29 @@ void InitializeEngine()
 }
 
 // ------------------------- LOAD ENGINE REOURCES ------------------------------ //
+/*!
+ * \brief Essa implementação Carrega os recursos da Engine do game boy,
+ */
 void LoadEngineResources()
 {
     // Carrega recursos da engine
 }
 
 // ------------------------- UPDATE ENGINE ------------------------------ //
+/*!
+ * \brief Essa implementação Atualiza a Engine do game boy,
+ */
 void UpdateEngine()
 {
     // Atualiza a engine do jogo
 }
 
 // --------- COPY TILES TO VRAM ------------------- //
+
+/*!
+ * \brief Essa implementação copia os dados do tile para a VRAM do game boy,
+ *          recebe os argumentos: tile, nb(numberOfTiles), sprite number - range 0 to 255, tile, pointeiro para os dados do tile .
+ */
 void LoadSprites(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data)
 {
     u8 _tile        = tile;
@@ -50,6 +64,10 @@ void LoadSprites(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data)
     set_sprite_tile(sprn, select_tile);
 }
 
+/*!
+ * \brief Essa estrutura representa um objeto e pede para criar uma struct do tipo Object,
+ *          que possui coordenadas x e y, velocidade x e velocidade y.
+ */
 void CreateObject(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
 {
     obj->x =         _x;
@@ -59,11 +77,14 @@ void CreateObject(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
 }
 
 // --------------  MOVIMENTAÇÃO DE OBJETO -------------------- //
-
-void ObjectMovement(struct Object *obj)
+/*!
+ * \brief Essa implementação representa a movimentação do objeto,
+ *          e está pré configurada para movimentar o objeto criado com velocidades específicas em x, y.
+ */
+void ObjectMovement(struct Object *obj, u8 _vel_x, u8 _vel_y)
 {
-    obj->vel_x = 1;
-    obj->vel_y = 1;
+    obj->vel_x = _vel_x;
+    obj->vel_y = _vel_y;
 
     if (joypad() & J_RIGHT)
     {
@@ -90,6 +111,11 @@ void ObjectMovement(struct Object *obj)
 
 // ---------------- COLISÃO DA TELA -------------------- //
 
+/*!
+ * \brief Essa implementação representa a colisão de um objeto com o tamanho da tela definida pelo desenvolvedor,
+ *          e pede uma struct do tipo Object, screenwidth, screenheight, 
+ *           tamanho do tile em largura e a dimensão i.e: 8x8 = 16.
+ */
 void ObjectScreenCollision(struct Object *obj, u8 _screenwidth, u8 _screenheight, u8 _tileWidth, u8 _tileDimension)
 {
     u8 screenwidth = _screenwidth;
@@ -123,34 +149,50 @@ void ObjectScreenCollision(struct Object *obj, u8 _screenwidth, u8 _screenheight
 }
 
 // ------------------------- SET CAMERA POSITION ------------------------------ //
-/*void SetCameraPosition(u8 x, u8 y) 
+/*!
+ * \brief Essa implementação posiciona a camera dentro do jogo,
+ *          recebe, coordenadas x e y.
+ */
+void SetCameraPosition(u8 x, u8 y) 
 {
 
 }
 
 // ------------------------- PLAY SOUND ------------------------------ //
+/*!
+ * \brief Essa implementação toca um som, i.e: um som de pulo, um som de tiro;
+ */
 void PlaySound(const u8 *sound)
 {
 
 }
 
 // ------------------------- STOP SOUND ------------------------------ //
+/*!
+ * \brief Essa implementação para de executar o som.
+ */
 void StopSound()
 {
 
 }
 
 // ------------------------- PLAY MUSIC ------------------------------ //
+/*!
+ * \brief Essa implementação Toca uma música.
+ */
 void PlayMusic(const u8 *music)
 {
 
 }
 
 // ------------------------- STOP MUSIC ------------------------------ //
+/*!
+ * \brief Essa implementação para de executar a música.
+ */
 void StopMusic()
 {
 
-} */
+} 
 
 
 
