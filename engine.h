@@ -38,7 +38,9 @@ void ObjectScreenCollision(struct Object *obj, u8 _screenwidth, u8 _screenheight
 
 void MoveSprite(struct Object *obj, u8 x, u8 y);
 
-void CreateSprite(struct Object *obj, u8 x, u8 y, u8 width, u8 height, u8 spritesize);
+void CreateSprite(struct Object *obj, u8 x, u8 y, u8 width, u8 height, u8 spritesize, u8 _firstTile, u8 _nbTiles, const u8 *_tileData);
+
+void CreateBackground(u8 _firstTile, u8 _tileCount, const u8 *_data, u8 _posX, u8 _posY, u8 _tileWidth, u8 _tileHeight, const u8 *_mapTileData);
 
 void performantdelay(u8 numloops);
 

@@ -23,6 +23,7 @@ void InitializeEngine()
     // Inicializa a engine do jogo
 
     // --------- SET DISPLAY ON AND SHOW SPRITE ------------ //
+    SHOW_BKG;
     SHOW_SPRITES;
     DISPLAY_ON;
 }
@@ -190,6 +191,9 @@ void performantdelay(u8 numloops){
     }     
 }
 
+/*!
+ * \brief Essa implementação ajusta os tiles formando o meta sprite.
+ */
 void MoveSprite(struct Object *obj, u8 x, u8 y)
 {
     move_sprite(obj->spriteids[0], x, y);
@@ -198,8 +202,12 @@ void MoveSprite(struct Object *obj, u8 x, u8 y)
     move_sprite(obj->spriteids[3], x + obj->spritesize, y + obj->spritesize);
 }
 
-void CreateSprite(struct Object *obj, u8 _x, u8 _y, u8 _width, u8 _height, u8 _spritesize)
+/*!
+ * \brief Essa implementação cria um sprite do tipo meta sprite.
+ */
+void CreateSprite(struct Object *obj, u8 _x, u8 _y, u8 _width, u8 _height, u8 _spritesize, u8 _firstTile, u8 _nbTiles, const u8 *_tileData)
 {
+    
     obj->spritesize = _spritesize;
     obj->x = _x;
     obj->y = _y;
@@ -218,7 +226,16 @@ void CreateSprite(struct Object *obj, u8 _x, u8 _y, u8 _width, u8 _height, u8 _s
     set_sprite_tile(3, 3);
     obj->spriteids[3] = 3;
 
-    // Posicionar os tiles corretamente para formar o sprite  (OBS: Não confundir com mover o sprite)
+    set_sprite_data(_firstTile, _nbTiles, _tileData);
+    
     MoveSprite(obj, obj->x, obj->y);
 }
 
+/*!
+ * \brief Essa implementação cria um background.
+ */
+void CreateBackground(u8 _firstTile, u8 _tileCount, const u8 *_tileData, u8 _xPos, u8 _yPos, u8 _tileWidth, u8 _tileHeight, const u8 *_mapTileData)
+{
+    set_bkg_data(_firstTile, _tileCount, _tileData);
+    set_bkg_tiles(_xPos, _yPos, _tileWidth, _tileHeight, _mapTileData);
+}
