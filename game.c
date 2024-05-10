@@ -18,7 +18,6 @@ struct Object player;
 void StartGame() 
 {
     // Create Player
-    //CreateObject(&player, 70, 80, 0, 0);
     CreateSprite(&player, 70, 80, 16, 16, 8);
     set_sprite_data(0, 8, marioTile);
 }
