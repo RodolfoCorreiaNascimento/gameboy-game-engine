@@ -10,7 +10,7 @@ Esta é a implementação do jogo onde é aplicada a lógica do mesmo, como movi
 
 #include "game.h"
 #include "engine.h"
-
+#include "mario.c"
 // ---------------- DEFINIÇÕES GLOBAIS -------------------- //
 struct Object player;
 
@@ -18,16 +18,19 @@ struct Object player;
 void StartGame() 
 {
     // Create Player
-    CreateObject(&player, 70, 80, 0, 0);
+    //CreateObject(&player, 70, 80, 0, 0);
+    CreateSprite(&player, 70, 80, 16, 16, 8);
+    set_sprite_data(0, 8, marioTile);
 }
 
 void SetupSprites()
 {
-    LoadSprites(0, 1, 0, 0, TileLabel);
+    
 }
 
 void UpdateGame()
 {
-    ObjectMovement(&player, 1, 1);
-    ObjectScreenCollision(&player, 160, 144, 8, 16);
+    MoveSprite(&player, player.x, player.y);
+    ObjectMovement(&player, player.x, player.y, 1, 1);
+    ObjectScreenCollision(&player, 160, 144, player.spritesize, player.spritesize);
 }

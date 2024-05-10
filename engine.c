@@ -23,8 +23,8 @@ void InitializeEngine()
     // Inicializa a engine do jogo
 
     // --------- SET DISPLAY ON AND SHOW SPRITE ------------ //
-    DISPLAY_ON;
     SHOW_SPRITES;
+    DISPLAY_ON;
 }
 
 // ------------------------- LOAD ENGINE REOURCES ------------------------------ //
@@ -81,10 +81,13 @@ void CreateObject(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
  * \brief Essa implementação representa a movimentação do objeto,
  *          e está pré configurada para movimentar o objeto criado com velocidades específicas em x, y.
  */
-void ObjectMovement(struct Object *obj, u8 _vel_x, u8 _vel_y)
+void ObjectMovement(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
 {
     obj->vel_x = _vel_x;
     obj->vel_y = _vel_y;
+
+    obj->x = _x;
+    obj->y = _y;
 
     if (joypad() & J_RIGHT)
     {
@@ -105,8 +108,6 @@ void ObjectMovement(struct Object *obj, u8 _vel_x, u8 _vel_y)
     {
         obj->y+=obj->vel_y;
     }
-
-    move_sprite(0, obj->x, obj->y);
 }
 
 // ---------------- COLISÃO DA TELA -------------------- //
@@ -194,6 +195,42 @@ void StopMusic()
 
 } 
 
+void performantdelay(u8 numloops){
+    u8 i;
+    for(i = 0; i < numloops; i++){
+        wait_vbl_done();
+    }     
+}
 
+void MoveSprite(struct Object *obj, u8 x, u8 y)
+{
+    move_sprite(obj->spriteids[0], x, y);
+    move_sprite(obj->spriteids[1], x + obj->spritesize, y);
+    move_sprite(obj->spriteids[2], x, y + obj->spritesize);
+    move_sprite(obj->spriteids[3], x + obj->spritesize, y + obj->spritesize);
+}
 
+void CreateSprite(struct Object *obj, u8 _x, u8 _y, u8 _width, u8 _height, u8 _spritesize)
+{
+    obj->spritesize = _spritesize;
+    obj->x = _x;
+    obj->y = _y;
+    obj->width = _width;
+    obj->height = _height;
+
+    set_sprite_tile(0, 0);
+    obj->spriteids[0] = 0;
+
+    set_sprite_tile(1, 1);
+    obj->spriteids[1] = 1;
+
+    set_sprite_tile(2, 2);
+    obj->spriteids[2] = 2;
+
+    set_sprite_tile(3, 3);
+    obj->spriteids[3] = 3;
+
+    // Posicionar os tiles corretamente para formar o sprite  (OBS: Não confundir com mover o sprite)
+    MoveSprite(obj, obj->x, obj->y);
+}
 

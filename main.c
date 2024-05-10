@@ -9,7 +9,6 @@ Função principal que inicia o jogo, inicializa a engine, carrega recursos, ini
 */
 
 #include <gb/gb.h>
-#include "apple.h"
 #include "engine.h"
 #include "game.h"
 
@@ -34,5 +33,7 @@ void main(void)
 
         // VSYNC - Sincronização Vertical ------------------------ //
         wait_vbl_done();
+        //performantdelay(5);
+    
     }
 }

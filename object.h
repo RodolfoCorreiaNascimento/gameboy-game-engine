@@ -18,7 +18,13 @@ Definição da estrutura de dados para objetos no jogo.
  */
 struct Object
 {
-    u8 x, y, vel_x, vel_y;
+    u8 x;
+    u8 y;
+    u8 vel_x;
+    u8 vel_y;
+    u8 width, height;
+    u8 spriteids[4];
+    u8 spritesize;
 };
 
 #endif
