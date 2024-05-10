@@ -43,5 +43,4 @@ Este projeto é licenciado sob a [MIT License](LICENSE).
 ## Roadmap
 1 - Iniciando um branch gameobject_engine que será usado para estruturar o game object dentro da engine para seu ultilizada dentro do game.c
 
-![Game Engine (Em desenvolvimento)](gameboy-game-engine
-/Captura de tela 2024-05-10 073140.png)
+![Game Engine (Em desenvolvimento)](./Captura de tela 2024-05-10 073140.png)
