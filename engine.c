@@ -64,18 +64,6 @@ void LoadSprites(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data)
     set_sprite_tile(sprn, select_tile);
 }
 
-/*!
- * \brief Essa estrutura representa um objeto e pede para criar uma struct do tipo Object,
- *          que possui coordenadas x e y, velocidade x e velocidade y.
- */
-void CreateObject(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
-{
-    obj->x =         _x;
-    obj->y =         _y;
-    obj->vel_x =     _vel_x;
-    obj->vel_y =     _vel_y;
-}
-
 // --------------  MOVIMENTAÇÃO DE OBJETO -------------------- //
 /*!
  * \brief Essa implementação representa a movimentação do objeto,
