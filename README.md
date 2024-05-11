@@ -1,3 +1,5 @@
+![](Captura de tela 2024-05-10 073140.png)
+
 # Agradecimentos
 
 Primeiramente Gostaríamos de expressar nossa sincera gratidão aos talentosos desenvolvedores do GBDK para Game Boy. Seu trabalho árduo e dedicação possibilitaram a criação de jogos incríveis e inspiraram uma comunidade apaixonada de desenvolvedores. Obrigado por sua contribuição para a magia dos videogames retro e modernos!
@@ -42,3 +44,5 @@ Este projeto é licenciado sob a [MIT License](LICENSE).
 
 ## Roadmap
 1 - Iniciando um branch gameobject_engine que será usado para estruturar o game object dentro da engine para seu ultilizada dentro do game.c
+
+
