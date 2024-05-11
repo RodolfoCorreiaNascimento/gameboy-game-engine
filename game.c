@@ -20,9 +20,11 @@ struct Object player;
 void StartGame() 
 {
     // Create Player
-    //CreateObject(&player, 70, 80, 0, 0);
-    CreateSprite(&player, 70, 80, 16, 16, 8);
-    set_sprite_data(0, 8, marioTile);
+    CreateSprite(&player, 160/2 + 16, 144/2 + 16, 16, 16, 8, 0, marioTileCount, marioTile);
+
+    // Create Background
+    CreateBackground(0, mapTileCount, tileMapSheet, 0, 0, worldTileWidth, worldTileHeight, worldTile);
+    
 }
 
 void SetupSprites()
