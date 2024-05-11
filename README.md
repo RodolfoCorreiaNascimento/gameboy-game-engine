@@ -1,4 +1,4 @@
-![](Captura de tela 2024-05-10 073140.png)
+![Captura de tela 2024-05-10 073140](https://github.com/RodolfoCorreiaNascimento/gameboy-game-engine/assets/64981849/691b7769-4bdb-4295-aff8-13bd13af4764)
 
 # Agradecimentos
 
