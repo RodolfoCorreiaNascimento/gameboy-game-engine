@@ -23,6 +23,7 @@ void InitializeEngine()
 
     // --------- SET DISPLAY ON AND SHOW SPRITE ------------ //
     SHOW_BKG;
+    SHOW_WIN;
     SHOW_SPRITES;
     DISPLAY_ON;
 }
