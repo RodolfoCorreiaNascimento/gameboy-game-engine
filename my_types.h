@@ -10,6 +10,10 @@ Definição de tipos de variáveis personalizadas para o jogo.
 #ifndef MY_TYPES_H
 #define MY_TYPES_H
 
+// Macro para definir o valor máximo da parte inteira e da parte decimal
+#define MAX_INTEIRO 0xF0 // 4 bits para a parte inteira
+#define MAX_DECIMAL 0x0F // 4 bits para a parte decimal
+
 // -------- DEFINIR TIPOS DE VARIAVEIS -------------- //
 
 typedef unsigned int            u32;

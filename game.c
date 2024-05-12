@@ -14,13 +14,14 @@ Esta é a implementação do jogo onde é aplicada a lógica do mesmo, como movi
 #include "worldTile.c"
 #include "tileMapSheet.c"
 // ---------------- DEFINIÇÕES GLOBAIS -------------------- //
-struct Object player;
+Object player;
 
 // --------- SET INITIAL SETUP ------------------ //
 void StartGame() 
 {
+    
     // Create Player
-    CreateSprite(&player, 160/2 + 16, 144/2 + 16, 16, 16, 8, 0, marioTileCount, marioTile);
+    CreateSprite(&player, 160/2 + 16, 144/2 + 16, 16, 16, 8, 2, 0, marioTileCount, marioTile);
 
     // Create Background
     CreateBackground(0, mapTileCount, tileMapSheet, 0, 0, worldTileWidth, worldTileHeight, worldTile);
@@ -34,7 +35,7 @@ void SetupSprites()
 
 void UpdateGame()
 {
-    //scroll_bkg(1, 0);
+    AddGravity(&player, 2);
     MoveSprite(&player, player.x, player.y);
     ObjectMovement(&player, player.x, player.y, 1, 1);
     ObjectScreenCollision(&player, 160, 144, player.spritesize, player.spritesize);

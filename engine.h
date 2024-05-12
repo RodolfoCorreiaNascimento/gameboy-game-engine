@@ -11,6 +11,8 @@ Definições das funções relacionadas à engine.
 #define ENGINE_H
 
 #include "my_types.h"
+#include "rigidbody.h"
+#include "fixedpoint.h"
 #include "object.h"
 
 // Protótipos das funções relacionadas à engine
@@ -32,13 +34,13 @@ void StopMusic();
 
 void LoadSprites(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data);
 
-void ObjectMovement(struct Object *obj, u8 _vel_x, u8 _vel_y, u8 _x, u8 _y);
+void ObjectMovement(Object *obj, u8 _vel_x, u8 _vel_y, u8 _x, u8 _y);
 
-void ObjectScreenCollision(struct Object *obj, u8 _screenwidth, u8 _screenheight, u8 _tileWidth, u8 _tileDimension);
+void ObjectScreenCollision(Object *obj, u8 _screenwidth, u8 _screenheight, u8 _tileWidth, u8 _tileDimension);
 
-void MoveSprite(struct Object *obj, u8 x, u8 y);
+void MoveSprite(Object *obj, u8 x, u8 y);
 
-void CreateSprite(struct Object *obj, u8 x, u8 y, u8 width, u8 height, u8 spritesize, u8 _firstTile, u8 _nbTiles, const u8 *_tileData);
+void CreateSprite(Object *obj, u8 x, u8 y, u8 width, u8 height, u8 spritesize, u8 _mass, u8 _firstTile, u8 _nbTiles, const u8 *_tileData);
 
 void CreateBackground(u8 _firstTile, u8 _tileCount, const u8 *_data, u8 _posX, u8 _posY, u8 _tileWidth, u8 _tileHeight, const u8 *_mapTileData);
 

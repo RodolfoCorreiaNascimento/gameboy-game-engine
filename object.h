@@ -16,7 +16,7 @@ Definição da estrutura de dados para objetos no jogo.
  * \brief Essa estrutura representa um objeto,
  *          que possui coordenadas x e y, velocidade. i.e: struct Object player;
  */
-struct Object
+typedef struct 
 {
     u8 x;
     u8 y;
@@ -25,10 +25,14 @@ struct Object
     u8 width, height;
     u8 spriteids[4];
     u8 spritesize;
-};
 
-void Translate(struct Object *obj, u8 x, u8 y);
+    // physics
+    u8 mass;
+    u8 velocity;
+}Object;
 
-void MoveTo(struct Object *obj, u8 x_orig, u8 y_orig, u8 x_dest, u8 y_dest);
+void Translate(Object *obj, u8 x, u8 y);
+
+void MoveTo(Object *obj, u8 x_orig, u8 y_orig, u8 x_dest, u8 y_dest);
 
 #endif

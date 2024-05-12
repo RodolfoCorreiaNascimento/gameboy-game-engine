@@ -13,7 +13,6 @@ Definições das funções relacionadas à engine.
 // Definições das funções relacionadas à engine
 
 // Definições globais da engine, se necessário
-
 // ------------------------- INITIALIZE ENGINE ------------------------------ //
 /*!
  * \brief Essa implementação inicia a Engine do game boy,
@@ -70,7 +69,7 @@ void LoadSprites(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data)
  * \brief Essa implementação representa a movimentação do objeto,
  *          e está pré configurada para movimentar o objeto criado com velocidades específicas em x, y.
  */
-void ObjectMovement(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
+void ObjectMovement(Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
 {
     obj->vel_x = _vel_x;
     obj->vel_y = _vel_y;
@@ -97,6 +96,11 @@ void ObjectMovement(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
     {
         obj->y+=obj->vel_y;
     }
+
+    if (joypad() & J_A)
+    {
+        AddForce(obj, 3);
+    }
 }
 
 // ---------------- COLISÃO DA TELA -------------------- //
@@ -106,7 +110,7 @@ void ObjectMovement(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
  *          e pede uma struct do tipo Object, screenwidth, screenheight, 
  *           tamanho do tile em largura e a dimensão i.e: 8x8 = 16.
  */
-void ObjectScreenCollision(struct Object *obj, u8 _screenwidth, u8 _screenheight, u8 _tileWidth, u8 _tileDimension)
+void ObjectScreenCollision(Object *obj, u8 _screenwidth, u8 _screenheight, u8 _tileWidth, u8 _tileDimension)
 {
     u8 screenwidth = _screenwidth;
     u8 screenheight = _screenheight;
@@ -194,7 +198,7 @@ void performantdelay(u8 numloops){
 /*!
  * \brief Essa implementação ajusta os tiles formando o meta sprite.
  */
-void MoveSprite(struct Object *obj, u8 x, u8 y)
+void MoveSprite(Object *obj, u8 x, u8 y)
 {
     move_sprite(obj->spriteids[0], x, y);
     move_sprite(obj->spriteids[1], x + obj->spritesize, y);
@@ -205,7 +209,7 @@ void MoveSprite(struct Object *obj, u8 x, u8 y)
 /*!
  * \brief Essa implementação cria um sprite do tipo meta sprite.
  */
-void CreateSprite(struct Object *obj, u8 _x, u8 _y, u8 _width, u8 _height, u8 _spritesize, u8 _firstTile, u8 _nbTiles, const u8 *_tileData)
+void CreateSprite(Object *obj, u8 _x, u8 _y, u8 _width, u8 _height, u8 _spritesize, u8 _mass, u8 _firstTile, u8 _nbTiles, const u8 *_tileData)
 {
     
     obj->spritesize = _spritesize;
@@ -213,6 +217,7 @@ void CreateSprite(struct Object *obj, u8 _x, u8 _y, u8 _width, u8 _height, u8 _s
     obj->y = _y;
     obj->width = _width;
     obj->height = _height;
+    obj->mass = _mass;
 
     set_sprite_tile(0, 0);
     obj->spriteids[0] = 0;

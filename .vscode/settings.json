@@ -2,6 +2,7 @@
     "files.associations": {
         "object.h": "c",
         "engine.h": "c",
-        "game.h": "c"
+        "game.h": "c",
+        "stddef.h": "c"
     }
 }
