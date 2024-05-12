@@ -29,11 +29,11 @@ void main(void)
         UpdateGame();
 
         // ---------------- FRAMERATE DELAY ---------------------- //
-        delay(10);
+        //delay(10);
 
         // VSYNC - Sincronização Vertical ------------------------ //
-        wait_vbl_done();
-        //performantdelay(5);
+        //wait_vbl_done();
+        performantdelay(5);
     
     }
 }

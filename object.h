@@ -28,7 +28,7 @@ typedef struct
 
     // physics
     u8 mass;
-    u8 velocity;
+   
 }Object;
 
 void Translate(Object *obj, u8 x, u8 y);

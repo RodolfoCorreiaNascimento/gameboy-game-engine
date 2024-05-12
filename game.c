@@ -21,7 +21,7 @@ void StartGame()
 {
     
     // Create Player
-    CreateSprite(&player, 160/2 + 16, 144/2 + 16, 16, 16, 8, 2, 0, marioTileCount, marioTile);
+    CreateSprite(&player, 160/2 + 16, 144/2 + 16, 16, 16, 8, 150, 0, marioTileCount, marioTile);
 
     // Create Background
     CreateBackground(0, mapTileCount, tileMapSheet, 0, 0, worldTileWidth, worldTileHeight, worldTile);
@@ -35,7 +35,7 @@ void SetupSprites()
 
 void UpdateGame()
 {
-    AddGravity(&player, 2);
+    AddGravity(&player, 5, 9);
     MoveSprite(&player, player.x, player.y);
     ObjectMovement(&player, player.x, player.y, 1, 1);
     ObjectScreenCollision(&player, 160, 144, player.spritesize, player.spritesize);

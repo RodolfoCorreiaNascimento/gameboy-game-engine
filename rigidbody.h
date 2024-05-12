@@ -7,7 +7,7 @@
 // m vai esta no Object, p é o resultado, g é a aceleração gravitacional 
 
 // Fazer função que recebe tal parametros
-void AddGravity(Object *obj, u8 gravity);
+void AddGravity(Object *obj, u8 _vel_y, u8 gravity);
 
 void AddForce(Object *obj, u8 force);
 

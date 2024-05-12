@@ -79,12 +79,14 @@ void ObjectMovement(Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
 
     if (joypad() & J_RIGHT)
     {
-        obj->x+=obj->vel_x;
+        //obj->x+=obj->vel_x;
+        scroll_bkg(1, 0);
     }
 
     if (joypad() & J_LEFT)
     {
-       obj->x-=obj->vel_x;
+       //obj->x-=obj->vel_x;
+       scroll_bkg(-1, 0);
     }
 
     if (joypad() & J_UP)
@@ -99,7 +101,7 @@ void ObjectMovement(Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
 
     if (joypad() & J_A)
     {
-        AddForce(obj, 3);
+        AddForce(obj, 10);
     }
 }
 
