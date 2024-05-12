@@ -49,10 +49,10 @@ void UpdateEngine()
 // --------- COPY TILES TO VRAM ------------------- //
 
 /*!
- * \brief Essa implementação copia os dados do tile para a VRAM do game boy,
+ * \brief Essa implementação copia os dados do tile para a VRAM do game boy, e cria 1 tile de 8x8
  *          recebe os argumentos: tile, nb(numberOfTiles), sprite number - range 0 to 255, tile, pointeiro para os dados do tile .
  */
-void LoadSprites(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data)
+void CreateTile(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data)
 {
     u8 _tile        = tile;
     u8 _nb          = nb;
@@ -63,79 +63,6 @@ void LoadSprites(u8 tile, u8 nb, u8 sprn, u8 select_tile, const u8 *data)
 
     set_sprite_data(_tile, _nb, _data);
     set_sprite_tile(sprn, select_tile);
-}
-
-// --------------  MOVIMENTAÇÃO DE OBJETO -------------------- //
-/*!
- * \brief Essa implementação representa a movimentação do objeto,
- *          e está pré configurada para movimentar o objeto criado com velocidades específicas em x, y.
- */
-void ObjectMovement(struct Object *obj, u8 _x, u8 _y, u8 _vel_x, u8 _vel_y)
-{
-    obj->vel_x = _vel_x;
-    obj->vel_y = _vel_y;
-
-    obj->x = _x;
-    obj->y = _y;
-
-    if (joypad() & J_RIGHT)
-    {
-        obj->x+=obj->vel_x;
-    }
-
-    if (joypad() & J_LEFT)
-    {
-       obj->x-=obj->vel_x;
-    }
-
-    if (joypad() & J_UP)
-    {
-        obj->y-=obj->vel_y;
-    }
-
-    if (joypad() & J_DOWN)
-    {
-        obj->y+=obj->vel_y;
-    }
-}
-
-// ---------------- COLISÃO DA TELA -------------------- //
-
-/*!
- * \brief Essa implementação representa a colisão de um objeto com o tamanho da tela definida pelo desenvolvedor,
- *          e pede uma struct do tipo Object, screenwidth, screenheight, 
- *           tamanho do tile em largura e a dimensão i.e: 8x8 = 16.
- */
-void ObjectScreenCollision(struct Object *obj, u8 _screenwidth, u8 _screenheight, u8 _tileWidth, u8 _tileDimension)
-{
-    u8 screenwidth = _screenwidth;
-    u8 screenheight = _screenheight;
-    u8 tileWidth = _tileWidth;
-    u8 tileDimension = _tileDimension;
-
-    // ------- RIGHT SCREEN CHECK --------- //
-    if (obj->x >= screenwidth)
-    {
-        obj->x = screenwidth;
-    }
-
-    // -------- LEFT SCREEN CHECK --------- //
-    if (obj->x <= tileWidth)
-    {
-        obj->x = tileWidth;
-    }
-
-    // -------- TOP SCREEN CHECK --------- //
-    if (obj->y <= tileDimension)
-    {
-        obj->y = tileDimension;
-    }
-
-    // -------- BOTTOM SCREEN CHECK ----- //
-    if (obj->y >= screenheight + tileWidth)
-    {
-        obj->y = screenheight + tileWidth;
-    }
 }
 
 // ------------------------- SET CAMERA POSITION ------------------------------ //
